@@ -8,9 +8,15 @@ class ZapatoDescPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: const [
+            SizedBox(height: 10),
             ShoseSizePreview(fullScreen: true),
             ZapatoDescription(
               titulo: 'Nike Air Max 720',
@@ -38,14 +44,45 @@ class _BotonesLikeCartSettings extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 30),
       padding: const EdgeInsets.symmetric(horizontal: 30),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
-            width: 45,
-            height: 45,
-            color: Colors.red,
+          const _BotonSombreado(
+            icon: Icon(Icons.star, color: Colors.red, size: 25),
+          ),
+          _BotonSombreado(
+            icon: Icon(Icons.add_shopping_cart, color: Colors.grey.withOpacity(0.4), size: 25),
+          ),
+          _BotonSombreado(
+            icon: Icon(Icons.star, color: Colors.grey.withOpacity(0.4), size: 25),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _BotonSombreado extends StatelessWidget {
+  final Icon icon;
+  const _BotonSombreado({Key? key, required this.icon}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 55,
+      height: 55,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            spreadRadius: -5,
+            blurRadius: 20,
+            offset: Offset(0, 10),
           )
         ],
       ),
+      child: icon,
     );
   }
 }
@@ -73,7 +110,12 @@ class _ColorsAndMore extends StatelessWidget {
             ),
           ),
           const Spacer(),
-          const BotonNaranja(texto: 'texto')
+          const BotonNaranja(
+            texto: 'Select Color',
+            alto: 28,
+            // ancho: 160,
+            opacity: 0.5,
+          )
         ],
       ),
     );
