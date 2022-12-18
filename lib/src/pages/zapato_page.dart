@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:shose_app/src/widget/custom_widgets.dart';
 
+import '../helpers/helpers.dart';
+
 class ZapatoPage extends StatelessWidget {
   const ZapatoPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    cambiarStatusDartk();
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

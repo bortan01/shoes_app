@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 
 class ZapatoDescription extends StatelessWidget {
@@ -16,6 +17,7 @@ class ZapatoDescription extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 20),
           Text(
             titulo,
             style: const TextStyle(
@@ -24,12 +26,14 @@ class ZapatoDescription extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20),
-          Text(
-            descripcion,
-            textAlign: TextAlign.justify,
-            style: const TextStyle(
-              color: Colors.black54,
-              height: 1.4,
+          FadeInDown(
+            child: Text(
+              descripcion,
+              textAlign: TextAlign.justify,
+              style: const TextStyle(
+                color: Colors.black54,
+                height: 1.4,
+              ),
             ),
           ),
           const SizedBox(height: 20),
