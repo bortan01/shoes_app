@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shose_app/src/widget/boton_naranja.dart';
 
+import '../pages/zapato_desc_page.dart';
+
 class AgregarCarrito extends StatelessWidget {
   final double monto;
   const AgregarCarrito({Key? key, required this.monto}) : super(key: key);
@@ -27,7 +29,14 @@ class AgregarCarrito extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            const BotonNaranja(texto: 'Add to Card'),
+            GestureDetector(
+                onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ZapatoDescPage(),
+                      ),
+                    ),
+                child: const BotonNaranja(texto: 'Add to Card')),
             const SizedBox(
               width: 20,
             )

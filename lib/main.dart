@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'src/pages/zapato_desc_page.dart';
+import 'package:provider/provider.dart';
+import 'package:shose_app/src/pages/zapato_page.dart';
+import 'package:shose_app/src/provider/zapato_provider.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,10 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      home: ZapatoDescPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ZapatoProvider()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Material App',
+        home: ZapatoPage(),
+      ),
     );
   }
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shose_app/src/pages/zapato_desc_page.dart';
+import 'package:shose_app/src/provider/zapato_provider.dart';
 
 class ShoseSizePreview extends StatelessWidget {
   final bool fullScreen;
@@ -6,32 +9,44 @@ class ShoseSizePreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: fullScreen ? 5 : 30,
-        vertical: fullScreen ? 0 : 5,
-      ),
-      child: Container(
-        width: double.infinity,
-        height: fullScreen ? 410 : 430,
-        decoration: BoxDecoration(
-          color: const Color(0xffFFCF53),
-          borderRadius: fullScreen
-              ? BorderRadius.circular(50)
-              : const BorderRadius.only(
-                  bottomLeft: Radius.circular(50),
-                  bottomRight: Radius.circular(50),
-                  topLeft: Radius.circular(40),
-                  topRight: Radius.circular(50)),
-        ),
-        child: Column(
-          children: [
-            const _ShoeWithShadow(),
-            Visibility(
-              visible: !fullScreen,
-              child: const _ZapatoTalla(),
+    return GestureDetector(
+      onTap: () {
+        if (!fullScreen) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ZapatoDescPage(),
             ),
-          ],
+          );
+        }
+      },
+      child: Padding(
+        padding: EdgeInsets.symmetric(
+          horizontal: fullScreen ? 5 : 30,
+          vertical: fullScreen ? 0 : 5,
+        ),
+        child: Container(
+          width: double.infinity,
+          height: fullScreen ? 410 : 430,
+          decoration: BoxDecoration(
+            color: const Color(0xffFFCF53),
+            borderRadius: fullScreen
+                ? BorderRadius.circular(50)
+                : const BorderRadius.only(
+                    bottomLeft: Radius.circular(50),
+                    bottomRight: Radius.circular(50),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(50)),
+          ),
+          child: Column(
+            children: [
+              const _ShoeWithShadow(),
+              Visibility(
+                visible: !fullScreen,
+                child: const _ZapatoTalla(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -69,24 +84,28 @@ class _TallaZapatoCaja extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final zapatoProvider = Provider.of<ZapatoProvider>(context);
     const boxShadow2 = [BoxShadow(blurRadius: 10, offset: Offset(0, 8), color: Color(0xffF1a23a))];
-    return Container(
-      alignment: Alignment.center,
-      width: 45,
-      height: 45,
-      decoration: BoxDecoration(
-        color: numero == 9 ? const Color(0xffF1a23a) : Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: numero == 9 ? boxShadow2 : null,
-      ),
-      child: Text(
-        numero.toString().replaceAll('.0', ''),
-        style: TextStyle(
-          color: numero == 9 ? Colors.white : const Color(0xfff1a23a),
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () => zapatoProvider.talla = numero,
+      child: Container(
+        alignment: Alignment.center,
+        width: 45,
+        height: 45,
+        decoration: BoxDecoration(
+          color: zapatoProvider.talla == numero ? const Color(0xffF1a23a) : Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: zapatoProvider.talla == numero ? boxShadow2 : null,
         ),
-        textAlign: TextAlign.center,
+        child: Text(
+          numero.toString().replaceAll('.0', ''),
+          style: TextStyle(
+            color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
@@ -97,12 +116,13 @@ class _ShoeWithShadow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final zapatoProvider = Provider.of<ZapatoProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(50),
       child: Stack(
-        children: const [
-          _ZapatoSombra(),
-          Image(image: AssetImage('assets/img/azul.png')),
+        children:  [
+          const _ZapatoSombra(),
+          Image(image: AssetImage(zapatoProvider.assetImage)),
         ],
       ),
     );

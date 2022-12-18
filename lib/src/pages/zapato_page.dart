@@ -38,7 +38,10 @@ class ZapatoPage extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: const [
-            ShoseSizePreview(),
+            Hero(
+              tag: 'zapato-1',
+              child: ShoseSizePreview(),
+            ),
             ZapatoDescription(
               titulo: 'Nike Air Max 720',
               descripcion:
