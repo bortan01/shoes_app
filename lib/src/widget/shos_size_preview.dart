@@ -101,7 +101,7 @@ class _TallaZapatoCaja extends StatelessWidget {
           numero.toString().replaceAll('.0', ''),
           style: TextStyle(
             color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
           textAlign: TextAlign.center,
@@ -117,14 +117,17 @@ class _ShoeWithShadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final zapatoProvider = Provider.of<ZapatoProvider>(context);
-    return Padding(
-      padding: const EdgeInsets.all(50),
-      child: Stack(
-        children:  [
-          const _ZapatoSombra(),
-          Image(image: AssetImage(zapatoProvider.assetImage)),
-        ],
-      ),
+
+    return Stack(
+      children: [
+        const _ZapatoSombra(),
+        Padding(
+          padding: const EdgeInsets.all(30),
+          child: Image(
+            image: AssetImage(zapatoProvider.assetImage),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -137,17 +140,17 @@ class _ZapatoSombra extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      bottom: 20,
-      right: 0,
+      bottom: 55,
+      right: 10,
       child: Transform.rotate(
         angle: -0.5,
         child: Container(
-          width: 230,
+          width: 280,
           height: 120,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(100),
             boxShadow: const [
-              BoxShadow(color: Color(0xffEAA14E), blurRadius: 40),
+              BoxShadow(color: Color(0xffEAA14E), blurRadius: 35),
             ],
           ),
         ),
