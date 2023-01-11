@@ -43,7 +43,7 @@ class ZapatoPage extends StatelessWidget {
           children: const [
             Hero(
               tag: 'zapato-1',
-              child: ShoseSizePreview(),
+              child: ShoseSizePreview2(),
             ),
             ZapatoDescription(
               titulo: 'Nike Air Max 720',

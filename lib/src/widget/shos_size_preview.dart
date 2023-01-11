@@ -1,52 +1,72 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shose_app/src/pages/zapato_desc_page.dart';
 import 'package:shose_app/src/provider/zapato_provider.dart';
 
-class ShoseSizePreview extends StatelessWidget {
-  final bool fullScreen;
-  const ShoseSizePreview({Key? key, this.fullScreen = false}) : super(key: key);
+import '../pages/zapato_desc_page.dart';
+
+class ShoseSizePreview1 extends StatelessWidget {
+  const ShoseSizePreview1({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        if (!fullScreen) {
+      child: GestureDetector(
+        onTap: () {
           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => const ZapatoDescPage(),
             ),
           );
-        }
-      },
-      child: Padding(
-        padding: EdgeInsets.symmetric(
-          horizontal: fullScreen ? 5 : 30,
-          vertical: fullScreen ? 0 : 5,
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 5,
+            vertical: 0,
+          ),
+          child: Container(
+            width: double.infinity,
+            height: 410,
+            decoration:
+                BoxDecoration(color: const Color(0xffFFCF53), borderRadius: BorderRadius.circular(50)),
+            child: Column(
+              children: const [
+                _ShoeWithShadow(),
+              ],
+            ),
+          ),
         ),
-        child: Container(
-          width: double.infinity,
-          height: fullScreen ? 410 : 430,
-          decoration: BoxDecoration(
-            color: const Color(0xffFFCF53),
-            borderRadius: fullScreen
-                ? BorderRadius.circular(50)
-                : const BorderRadius.only(
-                    bottomLeft: Radius.circular(50),
-                    bottomRight: Radius.circular(50),
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(50)),
-          ),
-          child: Column(
-            children: [
-              const _ShoeWithShadow(),
-              Visibility(
-                visible: !fullScreen,
-                child: const _ZapatoTalla(),
-              ),
-            ],
-          ),
+      ),
+    );
+  }
+}
+
+class ShoseSizePreview2 extends StatelessWidget {
+  const ShoseSizePreview2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 30,
+        vertical: 5,
+      ),
+      child: Container(
+        width: double.infinity,
+        height: 430,
+        decoration: const BoxDecoration(
+          color: Color(0xffFFCF53),
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50),
+              bottomRight: Radius.circular(50),
+              topLeft: Radius.circular(40),
+              topRight: Radius.circular(50)),
+        ),
+        child: Column(
+          children: const [
+            _ShoeWithShadow(),
+            _ZapatoTalla(),
+          ],
         ),
       ),
     );
@@ -63,12 +83,12 @@ class _ZapatoTalla extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: const [
+          _TallaZapatoCaja(numero: 4),
+          _TallaZapatoCaja(numero: 5),
+          _TallaZapatoCaja(numero: 6),
           _TallaZapatoCaja(numero: 7),
-          _TallaZapatoCaja(numero: 7.5),
           _TallaZapatoCaja(numero: 8),
-          _TallaZapatoCaja(numero: 8.5),
           _TallaZapatoCaja(numero: 9),
-          _TallaZapatoCaja(numero: 9.5),
         ],
       ),
     );

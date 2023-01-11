@@ -22,10 +22,10 @@ class ZapatoDescPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: const [
-            SizedBox(height: 3),
+            SizedBox(height: 25),
             Hero(
               tag: 'zapato-1',
-              child: ShoseSizePreview(fullScreen: true),
+              child: ShoseSizePreview1(),
             ),
             SizedBox(height: 10),
             ZapatoDescription(
