@@ -106,6 +106,13 @@ class _TallaZapatoCaja extends StatelessWidget {
   Widget build(BuildContext context) {
     final zapatoProvider = Provider.of<ZapatoProvider>(context);
     const boxShadow2 = [BoxShadow(blurRadius: 10, offset: Offset(0, 8), color: Color(0xffF1a23a))];
+
+    final style = TextStyle(
+      color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+    );
+
     return GestureDetector(
       onTap: () => zapatoProvider.talla = numero,
       child: Container(
@@ -119,11 +126,15 @@ class _TallaZapatoCaja extends StatelessWidget {
         ),
         child: Text(
           numero.toString().replaceAll('.0', ''),
-          style: TextStyle(
-            color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-          ),
+          // style: style,
+          style: zapatoProvider.talla == numero
+              ? Theme.of(context).textTheme.headline5
+              : Theme.of(context).textTheme.headline6,
+          // style: TextStyle(
+          //   color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
+          //   fontSize: 14,
+          //   fontWeight: FontWeight.bold,
+          // ),
           textAlign: TextAlign.center,
         ),
       ),

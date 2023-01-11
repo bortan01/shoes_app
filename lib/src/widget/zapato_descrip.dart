@@ -17,7 +17,7 @@ class ZapatoDescription extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
           Text(
             titulo,
             style: const TextStyle(
@@ -36,7 +36,7 @@ class ZapatoDescription extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 10),
         ],
       ),
     );

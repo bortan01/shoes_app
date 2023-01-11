@@ -1,5 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shose_app/src/helpers/helpers.dart';
 import 'package:shose_app/src/provider/zapato_provider.dart';
@@ -17,17 +18,20 @@ class ZapatoDescPage extends StatelessWidget {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarBrightness: Brightness.light,
+        ),
         elevation: 0,
       ),
       body: SingleChildScrollView(
         child: Column(
           children: const [
-            SizedBox(height: 25),
+            SizedBox(height: 35),
             Hero(
               tag: 'zapato-1',
               child: ShoseSizePreview1(),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             ZapatoDescription(
               titulo: 'Nike Air Max 720',
               descripcion:
@@ -195,7 +199,7 @@ class _MontoBuyNow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      margin: const EdgeInsets.only(top: 20, bottom: 20),
+      margin: const EdgeInsets.only(top: 10, bottom: 20),
       child: Row(
         children: [
           const Text(

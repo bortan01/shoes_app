@@ -10,14 +10,30 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ZapatoProvider()),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        home: ZapatoPage(),
+        home: const ZapatoPage(),
+        theme: theme.copyWith(
+          textTheme: theme.textTheme.copyWith(
+            headline6: const TextStyle(
+              color: Color(0xfff1a23a),
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+              headline5: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
       ),
     );
   }
