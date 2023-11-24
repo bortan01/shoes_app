@@ -148,17 +148,25 @@ class _ShoeWithShadow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final zapatoProvider = Provider.of<ZapatoProvider>(context);
+    final screenHeight = MediaQuery.of(context).size.height;
+    print(screenHeight);
 
-    return Stack(
-      children: [
-        const _ZapatoSombra(),
-        Padding(
-          padding: const EdgeInsets.all(30),
-          child: Image(
-            image: AssetImage(zapatoProvider.assetImage),
+    // 390 horizontal
+    return SafeArea(
+      top: false,
+      bottom: false,
+      child: Stack(
+        children: [
+          const _ZapatoSombra(),
+          Container(
+            height: screenHeight < 450 ? screenHeight * 0.8 : screenHeight * 0.4,
+            padding: const EdgeInsets.all(30),
+            child: Image(
+              image: AssetImage(zapatoProvider.assetImage),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
