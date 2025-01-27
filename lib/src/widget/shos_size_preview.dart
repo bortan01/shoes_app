@@ -29,8 +29,8 @@ class ShoseSizePreview1 extends StatelessWidget {
             height: 410,
             decoration:
                 BoxDecoration(color: const Color(0xffFFCF53), borderRadius: BorderRadius.circular(50)),
-            child: Column(
-              children: const [
+            child: const Column(
+              children: [
                 _ShoeWithShadow(),
               ],
             ),
@@ -62,8 +62,8 @@ class ShoseSizePreview2 extends StatelessWidget {
               topLeft: Radius.circular(40),
               topRight: Radius.circular(50)),
         ),
-        child: Column(
-          children: const [
+        child: const Column(
+          children: [
             _ShoeWithShadow(),
             _ZapatoTalla(),
           ],
@@ -78,11 +78,11 @@ class _ZapatoTalla extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: const [
+        children: [
           _TallaZapatoCaja(numero: 4),
           _TallaZapatoCaja(numero: 5),
           _TallaZapatoCaja(numero: 6),
@@ -107,11 +107,6 @@ class _TallaZapatoCaja extends StatelessWidget {
     final zapatoProvider = Provider.of<ZapatoProvider>(context);
     const boxShadow2 = [BoxShadow(blurRadius: 10, offset: Offset(0, 8), color: Color(0xffF1a23a))];
 
-    final style = TextStyle(
-      color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
-      fontSize: 14,
-      fontWeight: FontWeight.bold,
-    );
 
     return GestureDetector(
       onTap: () => zapatoProvider.talla = numero,
@@ -128,8 +123,8 @@ class _TallaZapatoCaja extends StatelessWidget {
           numero.toString().replaceAll('.0', ''),
           // style: style,
           style: zapatoProvider.talla == numero
-              ? Theme.of(context).textTheme.headline5
-              : Theme.of(context).textTheme.headline6,
+              ? Theme.of(context).textTheme.headlineLarge
+              : Theme.of(context).textTheme.headlineMedium,
           // style: TextStyle(
           //   color: zapatoProvider.talla == numero ? Colors.white : const Color(0xfff1a23a),
           //   fontSize: 14,

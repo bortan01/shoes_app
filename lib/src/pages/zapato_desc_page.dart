@@ -23,9 +23,9 @@ class ZapatoDescPage extends StatelessWidget {
         ),
         elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: const SingleChildScrollView(
         child: Column(
-          children: const [
+          children: [
             SizedBox(height: 35),
             Hero(
               tag: 'zapato-1',
@@ -129,8 +129,8 @@ class _ColorsAndMore extends StatelessWidget {
         children: [
           Transform.rotate(
             angle: math.pi,
-            child: Row(
-              children: const [
+            child: const Row(
+              children: [
                 _BotonColor(color: Color(0xff364d56), index: 1, path: 'assets/img/negro.png'),
                 _BotonColor(color: Color(0xffc6d642), index: 2, path: 'assets/img/verde.png'),
                 _BotonColor(color: Color(0xffffAD29), index: 3, path: 'assets/img/amarillo.png'),

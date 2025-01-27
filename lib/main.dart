@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
         home: const ZapatoPage(),
         theme: theme.copyWith(
           textTheme: theme.textTheme.copyWith(
-            headline6: const TextStyle(
+            headlineLarge: const TextStyle(
               color: Color(0xfff1a23a),
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
-              headline5: const TextStyle(
+              headlineMedium: const TextStyle(
               color: Colors.white,
               fontSize: 14,
               fontWeight: FontWeight.bold,

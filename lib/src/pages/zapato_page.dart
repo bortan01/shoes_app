@@ -37,10 +37,10 @@ class ZapatoPage extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
+      body: const SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
-          children: const [
+          children: [
             Hero(
               tag: 'zapato-1',
               child: ShoseSizePreview2(),
