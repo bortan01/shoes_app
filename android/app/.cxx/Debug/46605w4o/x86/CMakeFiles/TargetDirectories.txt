@@ -1,0 +1,2 @@
+/Users/boris/Desktop/proyectos/shoes_app/android/app/.cxx/Debug/46605w4o/x86/CMakeFiles/edit_cache.dir
+/Users/boris/Desktop/proyectos/shoes_app/android/app/.cxx/Debug/46605w4o/x86/CMakeFiles/rebuild_cache.dir
