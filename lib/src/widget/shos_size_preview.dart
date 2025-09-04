@@ -27,8 +27,9 @@ class ShoseSizePreview1 extends StatelessWidget {
           child: Container(
             width: double.infinity,
             height: 410,
-            decoration:
-                BoxDecoration(color: const Color(0xffFFCF53), borderRadius: BorderRadius.circular(50)),
+            decoration: BoxDecoration(
+                color: const Color(0xffFFCF53),
+                borderRadius: BorderRadius.circular(50)),
             child: const Column(
               children: [
                 _ShoeWithShadow(),
@@ -105,8 +106,9 @@ class _TallaZapatoCaja extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final zapatoProvider = Provider.of<ZapatoProvider>(context);
-    const boxShadow2 = [BoxShadow(blurRadius: 10, offset: Offset(0, 8), color: Color(0xffF1a23a))];
-
+    const boxShadow2 = [
+      BoxShadow(blurRadius: 10, offset: Offset(0, 8), color: Color(0xffF1a23a))
+    ];
 
     return GestureDetector(
       onTap: () => zapatoProvider.talla = numero,
@@ -115,7 +117,9 @@ class _TallaZapatoCaja extends StatelessWidget {
         width: 45,
         height: 45,
         decoration: BoxDecoration(
-          color: zapatoProvider.talla == numero ? const Color(0xffF1a23a) : Colors.white,
+          color: zapatoProvider.talla == numero
+              ? const Color(0xffF1a23a)
+              : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: zapatoProvider.talla == numero ? boxShadow2 : null,
         ),
@@ -154,7 +158,8 @@ class _ShoeWithShadow extends StatelessWidget {
         children: [
           const _ZapatoSombra(),
           Container(
-            height: screenHeight < 450 ? screenHeight * 0.8 : screenHeight * 0.4,
+            height:
+                screenHeight < 450 ? screenHeight * 0.8 : screenHeight * 0.4,
             padding: const EdgeInsets.all(30),
             child: Image(
               image: AssetImage(zapatoProvider.assetImage),

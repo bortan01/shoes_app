@@ -5,10 +5,10 @@ packages:
     dependency: "direct main"
     description:
       name: animate_do
-      sha256: "9aeacc1a7238f971c039bdf45d13c628be554a242e0251c4ddda09d19a1a923f"
+      sha256: b6ff08dc6cf3cb5586a86d7f32a3b5f45502d2e08e3fb4f5a484c8421c9b3fc0
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.2"
+    version: "3.3.9"
   async:
     dependency: transitive
     description:
@@ -53,10 +53,10 @@ packages:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      sha256: d57953e10f9f8327ce64a508a355f0b1ec902193f66288e8cb5070e7c47eeb2d
+      sha256: ba631d1c7f7bef6b729a622b7b752645a2d076dba9976925b8f25725a30e1ee6
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.8"
   fake_async:
     dependency: transitive
     description:
@@ -159,10 +159,10 @@ packages:
     dependency: "direct main"
     description:
       name: provider
-      sha256: "9a96a0a19b594dbc5bf0f1f27d2bc67d5f95957359b461cd9feb44ed6ae75096"
+      sha256: "4e82183fa20e5ca25703ead7e05de9e4cceed1fbd1eadc1ac3cb6f565a09f272"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.1"
+    version: "6.1.5+1"
   sky_engine:
     dependency: transitive
     description: flutter
